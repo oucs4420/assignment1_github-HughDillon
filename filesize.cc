@@ -19,16 +19,20 @@ int main( int argc, char* argv[] )
         string filename = argv[arg];
         ifstream file;
         file.open(filename);
-        if(!file.fail()){
-            while(getline(file,line))
-            {
+        if(file){
+            while(getline(file,line)){
             num_lines++;
+            }
+            if(num_lines == 0){
+                cout << " " << filename << ": -1" << '\n';
+            }
+            else{
+                std::cout << " " << filename << ": " << num_lines << '\n' ;
             }
         }
         else {
             cout << " " << filename << ": -1" << '\n';
-        }
-        std::cout << " " << filename << ": " << num_lines << '\n' ;
+        }  
     }   
     exit(0); // this means that the program executed correctly!
 }
